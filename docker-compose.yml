@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  controller:
+    build: .
+    entrypoint: ./entrypoint-controller.sh
+    container_name: controller
+    hostname: controller
+
+  worker-1:
+    build: .
+    container_name: worker-1
+    hostname: worker-1
+    depends_on:
+      - controller
